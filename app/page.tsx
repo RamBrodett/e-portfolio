@@ -10,29 +10,30 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-import { Github, Linkedin, Mail, ArrowRight, ExternalLink, FileText } from "lucide-react";
+import { Github, Linkedin, Mail, ArrowRight, ExternalLink, FileText, ChevronDown } from "lucide-react";
 import { getProjects } from "@/lib/projects";
-import { get } from "http";
 import { getAssetPath } from "@/lib/utils";
+
+import { ScrollDownButton } from "@/components/scroll-down-button";
 
 export default function Home() {
   const projects = getProjects();
 
   return (
     <main className="min-h-screen">
-      <div className="mx-auto max-w-lg md:max-w-2xl xl:max-w-6xl px-8 md:px-0 py-24 space-y-32">
-        <section id="about" className="flex flex-col gap-8 scroll-mt-28">
+      <div className="mx-auto max-w-lg md:max-w-2xl xl:max-w-6xl px-4 sm:px-8 md:px-0">
+        <section id="about" className="flex flex-col justify-center items-center text-center gap-8 min-h-[calc(100vh-3.5rem)] py-12 relative">
           <div className="space-y-4">
             <h1 className="text-4xl font-bold tracking-tight sm:text-6xl lg:text-7xl text-foreground">
               Hi, I'm Ram Brodett.
             </h1>
-            <p className="text-xl text-muted-foreground max-w-3xl">
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               A <strong>Full Stack Software Engineer</strong> with a deep interest in <strong>Artificial Intelligence</strong> and <strong>Human-Computer Interaction</strong>.
               I engineer <strong>scalable, intelligent solutions</strong> backed by modern <strong>DevOps practices</strong>.
             </p>
           </div>
           
-          <div className="flex gap-4">
+          <div className="flex flex-wrap justify-center gap-4">
             <Button asChild className="h-10 px-6">
               <Link href="#contact">
                 Contact Me <ArrowRight className="ml-2 h-4 w-4" />
@@ -49,9 +50,13 @@ export default function Home() {
               </Link>
             </Button>
           </div>
+
+          <div className="absolute bottom-8 animate-bounce">
+            <ScrollDownButton />
+          </div>
         </section>
 
-        <section id="projects" className="space-y-12 scroll-mt-28">
+        <section id="projects" className="space-y-12 scroll-mt-28 py-24">
           <div className="flex items-center justify-between">
             <h2 className="text-3xl font-bold tracking-tight">Projects</h2>
           </div>
@@ -98,7 +103,7 @@ export default function Home() {
         </section>
 
         <Separator className="bg-border/40" />
-        <section id="contact" className="space-y-8 scroll-mt-28 pb-20">
+        <section id="contact" className="space-y-8 scroll-mt-28 py-24">
           <div className="space-y-2">
             <h2 className="text-3xl font-bold tracking-tight">Get in Touch</h2>
             <p className="text-muted-foreground text-lg">

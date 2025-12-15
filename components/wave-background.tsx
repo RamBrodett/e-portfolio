@@ -9,7 +9,7 @@ export function WaveBackground() {
 
   useEffect(() => {
     const isFinePointer = window.matchMedia("(pointer: fine)").matches;
-    if (!isFinePointer) return;
+    // if (!isFinePointer) return; // Removed to allow rendering on all devices
 
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -67,37 +67,44 @@ export function WaveBackground() {
       }
 
       update(time: number) {
-        const dx = mouse.x - this.x;
-        const dy = mouse.y - this.y;
-        const distance = Math.sqrt(dx * dx + dy * dy);
-        const forceDirectionX = dx / distance;
-        const forceDirectionY = dy / distance;
+        if (isFinePointer) {
+          const dx = mouse.x - this.x;
+          const dy = mouse.y - this.y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+          const forceDirectionX = dx / distance;
+          const forceDirectionY = dy / distance;
+          
+          const forceRadius = 100; 
+          const visibilityRadius = 500; 
+
         
-        const forceRadius = 100; 
-        const visibilityRadius = 500; 
-
-       
-        if (distance < forceRadius) {
-          const force = (forceRadius - distance) / forceRadius;
-          const directionX = forceDirectionX * force * this.density;
-          const directionY = forceDirectionY * force * this.density;
-          this.x -= directionX;
-          this.y -= directionY;
-        } else {
-          if (this.x !== this.baseX) {
-            const dx = this.x - this.baseX;
-            this.x -= dx / 50;
+          if (distance < forceRadius) {
+            const force = (forceRadius - distance) / forceRadius;
+            const directionX = forceDirectionX * force * this.density;
+            const directionY = forceDirectionY * force * this.density;
+            this.x -= directionX;
+            this.y -= directionY;
+          } else {
+            if (this.x !== this.baseX) {
+              const dx = this.x - this.baseX;
+              this.x -= dx / 50;
+            }
+            if (this.y !== this.baseY) {
+              const dy = this.y - this.baseY;
+              this.y -= dy / 50;
+            }
           }
-          if (this.y !== this.baseY) {
-            const dy = this.y - this.baseY;
-            this.y -= dy / 50;
-          }
-        }
 
-        if (distance < visibilityRadius) {
-            this.opacity = 1 - (distance / visibilityRadius);
+          if (distance < visibilityRadius) {
+              this.opacity = 1 - (distance / visibilityRadius);
+          } else {
+              this.opacity = 0;
+          }
         } else {
-            this.opacity = 0;
+          // Non-fine pointer behavior: static and lower opacity
+          this.x = this.baseX;
+          this.y = this.baseY;
+          this.opacity = 0.3; 
         }
       }
 
