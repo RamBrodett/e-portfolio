@@ -1,7 +1,19 @@
 import type { NextConfig } from "next";
+import Icons from "unplugin-icons/webpack";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  output:"export",
+  images:{ unoptimized: true},
+  webpack(config) {
+    config.plugins.push(
+      Icons({
+        compiler: 'jsx',
+        jsx: 'react',
+      })
+    );
+    return config;
+  },
+  basePath: "/portfolio",
 };
 
 export default nextConfig;
