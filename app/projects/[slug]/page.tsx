@@ -115,7 +115,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                       )
                     ) : (
                       <Image 
-                        src={item.url} 
+                        src={getAssetPath(item.url)} 
                         alt={item.caption || project.title} 
                         width={0}
                         height={0}
