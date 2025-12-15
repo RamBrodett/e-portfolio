@@ -12,6 +12,8 @@ import {
 import { Separator } from "@/components/ui/separator";
 import { Github, Linkedin, Mail, ArrowRight, ExternalLink, FileText } from "lucide-react";
 import { getProjects } from "@/lib/projects";
+import { get } from "http";
+import { getAssetPath } from "@/lib/utils";
 
 export default function Home() {
   const projects = getProjects();
@@ -60,7 +62,7 @@ export default function Home() {
                 <Card className="h-full flex flex-col border-border/40 bg-card/50 hover:bg-card/80 transition-colors cursor-pointer overflow-hidden">
                   <div className="aspect-video w-full overflow-hidden bg-muted shrink-0 relative">
                     <Image 
-                      src={project.coverImage} 
+                      src={getAssetPath(project.coverImage)} 
                       alt={project.title}
                       fill
                       className="object-cover transition-transform duration-300 hover:scale-105"
