@@ -8,6 +8,9 @@ export function WaveBackground() {
   const { resolvedTheme } = useTheme();
 
   useEffect(() => {
+    const isFinePointer = window.matchMedia("(pointer: fine)").matches;
+    if (!isFinePointer) return;
+
     const canvas = canvasRef.current;
     if (!canvas) return;
 
