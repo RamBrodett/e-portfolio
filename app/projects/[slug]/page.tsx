@@ -52,13 +52,23 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             ))}
           </div>
 
-          <div className="flex gap-4 pt-4">
+          <div className="flex gap-4 pt-4 flex-wrap">
             {project.links.github && (
-              <Button variant="outline" asChild>
-                <Link href={project.links.github} target="_blank">
-                  <Github className="mr-2 h-4 w-4" /> View Code
-                </Link>
-              </Button>
+              typeof project.links.github === 'string' ? (
+                <Button variant="outline" asChild>
+                  <Link href={project.links.github} target="_blank">
+                    <Github className="mr-2 h-4 w-4" /> View Code
+                  </Link>
+                </Button>
+              ) : (
+                project.links.github.map((link, i) => (
+                  <Button key={i} variant="outline" asChild>
+                    <Link href={link.url} target="_blank">
+                      <Github className="mr-2 h-4 w-4" /> {link.label}
+                    </Link>
+                  </Button>
+                ))
+              )
             )}
             {project.links.demo && (
               <Button asChild>

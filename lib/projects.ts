@@ -7,7 +7,7 @@ export interface ProjectMedia {
 }
 
 export interface ProjectLinks {
-  github?: string;
+  github?: string | { label: string; url: string }[];
   demo?: string;
 }
 

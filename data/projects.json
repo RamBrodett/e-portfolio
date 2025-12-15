@@ -1,0 +1,70 @@
+[
+    {
+    "slug": "hearsona",
+    "title": "Hearsona",
+    "subtitle": "Thesis Project • 2025",
+    "shortDescription": "Developed a Human-in-the-Loop (HITL) generative AI tool for creating personalized audio cues.",
+    "fullDescription": "Engineered a Human-in-the-Loop (HITL) generative AI pipeline that empowers users to co-create personalized auditory cues. The system integrates Mistral 7B for intent reasoning and AudioLDM2 for synthesis, allowing users to iteratively refine outputs through natural language feedback and fine-grained controls. This interactive workflow ensures the generated cues are not only high-fidelity but semantically aligned with the user’s specific cognitive associations.",
+    "techStack": ["Python", "React", "Mistral 7B Instruct", "AudioLDM2", "Websockets"],
+    "coverImage": "/images/hearsona_cover.png",
+    "media": [
+      { "type": "image", "url": "/images/hearsona_img_1.png", "caption": "Interface" },
+       { "type": "image", "url": "/images/hearsona_img_2.png", "caption": "HITL conversation" },
+       { "type": "image", "url": "/images/hearsona_pipeline.png", "caption": "Hearsona Pipeline" },
+      { "type": "video", "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ", "caption": "Audio Generation Demo (Placeholder)" }
+    ],
+    "links": {
+      "github": []
+    }
+  },
+  {
+    "slug": "o-vr-hear-space",
+    "title": "O-VR Hear Space",
+    "subtitle": "Thesis Project • 2025",
+    "shortDescription": "Developed a VR environment to test cognitive-level personalization of spatial audio cues. Evaluated user performance via search time, utilizing NASA-TLX and UEQ-S for user experience validation.",
+    "fullDescription": "This project explores the impact of cognitive-level personalization in spatial audio on object localization in Virtual Reality. By leveraging the Meta XR SDK and Unity, we created an environment to test user performance in locating a sound source. The study evaluates the effectiveness of these cues by measuring localization speed (search time), while utilizing integrated in-VR questionnaires—specifically NASA-TLX for workload assessment and UEQ-S for user experience quality—to validate the results.",
+    "techStack": ["Unity", "C#", "MetaSDK", "HCI Research"],
+    "coverImage": "/images/ovrhear_cover.png",
+    "media": [
+      { "type": "image", "url": "/images/placeholder-vr-1.jpg", "caption": "User testing session" }
+    ],
+    "links": {
+      "github": []
+    }
+  },
+  {
+    "slug": "distributed-ocr-system",
+    "title": "Distributed OCR System",
+    "subtitle": "Academic Project • 2025",
+    "shortDescription": "Engineered a fault-tolerant client-server architecture for extracting text from images. Implemented multithreading with OpenCV and Tesseract for high-throughput processing.",
+    "fullDescription": "A robust distributed system designed for high-throughput Optical Character Recognition (OCR). The system employs a client-server architecture using gRPC for communication. It features fault tolerance mechanisms and utilizes multithreading to parallelize image processing tasks using OpenCV and Tesseract, ensuring efficient text extraction even under heavy loads.",
+    "techStack": ["C++", "gRPC", "OpenCV", "Tesseract", "Distributed Systems", "Multithreading"],
+    "coverImage": "/images/placeholder-ocr.jpg",
+    "media": [
+      { "type": "image", "url": "/images/placeholder-ocr-arch.jpg", "caption": "System Architecture" }
+    ],
+    "links": {
+      "github": [
+        { "label": "Client Code", "url": "https://github.com/RamBrodett/OCRClient" },
+        { "label": "Server Code", "url": "https://github.com/RamBrodett/OCRServer" }
+      ]
+    }
+  },
+  {
+    "slug": "lexson",
+    "title": "Lexson System",
+    "subtitle": "Client-Based Project • 2023",
+    "shortDescription": "",
+    "fullDescription": "",
+    "techStack": ["React", "Node.js"],
+    "coverImage": "/images/placeholder-ocr.jpg",
+    "media": [
+      { "type": "image", "url": "/images/placeholder-ocr-arch.jpg", "caption": "System Architecture" }
+    ],
+    "links": {
+      "github": [],
+      "demo": ""
+    }
+  }
+  
+]
