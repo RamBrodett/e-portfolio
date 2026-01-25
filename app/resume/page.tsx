@@ -25,7 +25,7 @@ export default function ResumePage() {
 
   return (
     <main className="pt-2">
-      <div className="mx-auto max-w-lg md:max-w-2xl xl:max-w-6xl px-8 md:px-0 py-4">
+      <div className="mx-auto max-w-lg md:max-w-2xl xl:max-w-6xl px-4 md:px-0 py-4">
         <div className="h-[calc(100vh-10rem)]">
           <PDFViewer fileUrl={getAssetPath("/resume.pdf")} />
         </div>

@@ -56,7 +56,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="projects" className="space-y-12 scroll-mt-28 py-24">
+        <section id="projects" className="space-y-12 scroll-mt-16 py-24">
           <div className="flex items-center justify-between">
             <h2 className="text-3xl font-bold tracking-tight">Projects</h2>
           </div>
