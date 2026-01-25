@@ -96,7 +96,7 @@ export function WaveBackground() {
           }
 
           if (distance < visibilityRadius) {
-              this.opacity = 1 - (distance / visibilityRadius);
+              this.opacity = (1 - (distance / visibilityRadius)) * 0.5;
           } else {
               this.opacity = 0;
           }
@@ -104,7 +104,7 @@ export function WaveBackground() {
           // Non-fine pointer behavior: static and lower opacity
           this.x = this.baseX;
           this.y = this.baseY;
-          this.opacity = 0.3; 
+          this.opacity = 0.15; 
         }
       }
 
@@ -157,7 +157,7 @@ export function WaveBackground() {
   return (
     <canvas
       ref={canvasRef}
-      className="fixed inset-0 -z-10 pointer-events-none"
+      className="fixed inset-0 z-0 pointer-events-none"
       style={{ opacity: 1 }} 
     />
   );

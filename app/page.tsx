@@ -45,7 +45,7 @@ export default function Home() {
               </Link>
             </Button>
              <Button variant="outline" asChild>
-              <Link href="/resume.pdf" target="_blank">
+              <Link href="/resume">
                 <FileText className="mr-2 h-4 w-4" /> Resume
               </Link>
             </Button>
