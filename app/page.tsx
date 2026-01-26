@@ -24,8 +24,10 @@ export default function Home() {
       <div className="mx-auto max-w-lg md:max-w-2xl xl:max-w-6xl px-4 sm:px-8 md:px-0">
         <section id="about" className="flex flex-col justify-center items-center text-center gap-8 min-h-[calc(100vh-3.5rem)] py-12 relative">
           <div className="space-y-4">
-            <h1 className="text-4xl font-bold tracking-tight sm:text-6xl lg:text-7xl text-foreground">
-              Hi, I'm Ram Brodett.
+            <h1 className="text-5xl font-bold tracking-tight sm:text-7xl lg:text-9xl">
+              <span className="block bg-gradient-to-r from-foreground/80 via-foreground via-primary/90 via-foreground to-foreground/80 bg-[length:300%_auto] animate-shimmer bg-clip-text text-transparent">
+                Ram Brodett
+              </span>
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               A <strong>Full Stack Software Engineer</strong> with a deep interest in <strong>Artificial Intelligence</strong> and <strong>Human-Computer Interaction</strong>.
