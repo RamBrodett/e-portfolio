@@ -11,7 +11,7 @@
       { "type": "image", "url": "/images/hearsona_img_1.png", "caption": "Interface" },
        { "type": "image", "url": "/images/hearsona_img_2.png", "caption": "HITL conversation" },
        { "type": "image", "url": "/images/hearsona_pipeline.png", "caption": "Hearsona Pipeline" },
-      { "type": "video", "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ", "caption": "Audio Generation Demo (Placeholder)" }
+      { "type": "video", "url": "https://youtu.be/Op9Kx-vyf9M", "caption": "Audio Generation Demo" }
     ],
     "links": {
       "github": []
