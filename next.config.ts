@@ -13,7 +13,7 @@ const nextConfig: NextConfig = {
     );
     return config;
   },
-  basePath: "/e-portfolio",
+  //basePath: "/e-portfolio",
 };
 
 export default nextConfig;
