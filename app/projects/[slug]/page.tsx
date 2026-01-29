@@ -53,7 +53,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           </div>
 
           <div className="flex gap-4 pt-4 flex-wrap">
-            {project.links.github && (
+            {project.links.github && project.links.github.length > 0 ? (
               typeof project.links.github === 'string' ? (
                 <Button variant="outline" asChild>
                   <Link href={project.links.github} target="_blank">
@@ -69,6 +69,10 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                   </Button>
                 ))
               )
+            ) : (
+              <Button variant="outline" disabled className="opacity-50 cursor-not-allowed">
+                <Github className="mr-2 h-4 w-4" /> Private Repo
+              </Button>
             )}
             {project.links.demo && (
               <Button asChild>

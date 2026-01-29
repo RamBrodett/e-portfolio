@@ -21,12 +21,17 @@
     "slug": "o-vr-hear-space",
     "title": "O-VR Hear Space",
     "subtitle": "Thesis Project • 2025",
-    "shortDescription": "Developed a VR environment to test cognitive-level personalization of spatial audio cues. Evaluated user performance via search time, utilizing NASA-TLX and UEQ-S for user experience validation.",
-    "fullDescription": "This project explores the impact of cognitive-level personalization in spatial audio on object localization in Virtual Reality. By leveraging the Meta XR SDK and Unity, we created an environment to test user performance in locating a sound source. The study evaluates the effectiveness of these cues by measuring localization speed (search time), while utilizing integrated in-VR questionnaires—specifically NASA-TLX for workload assessment and UEQ-S for user experience quality—to validate the results.",
+    "shortDescription": "Engineered a VR environment to evaluate spatial audio personalization, utilizing NASA-TLX, UEQ-S, and search time for performance validation.",
+    "fullDescription": "This project investigates the impact of cognitive-level personalization in spatial audio on object localization in Virtual Reality. Using the Meta XR SDK and Unity, we developed an environment to test how specific cues improve sound source localization. The study evaluates cue effectiveness by measuring search time and validating results through integrated in-VR questionnaires, including the NASA-TLX for workload and UEQ-S for user experience.",
     "techStack": ["Unity", "C#", "MetaSDK", "HCI Research"],
     "coverImage": "/images/ovrhear_cover.png",
     "media": [
-      { "type": "image", "url": "/images/placeholder-vr-1.jpg", "caption": "User testing session" }
+      { "type": "image", "url": "/images/ovrhr_img_design.png", "caption": "Virutal Environment Schematic" },
+      { "type": "image", "url": "/images/ovrhr_img_1.png", "caption": "Virtual Environment Implementation (UNITY)" },
+      { "type": "image", "url": "/images/ovrhr_img_5.png", "caption": "In VR User POV" },
+      { "type": "image", "url": "/images/ovrhr_img_2.png", "caption": "Grabbing Interaction Tutorial Panel" },
+      { "type": "image", "url": "/images/ovrhr_img_3.png", "caption": "Successful Pointing Localization" },
+      { "type": "image", "url": "/images/ovrhr_img_4.png", "caption": "Successful Grabbing Localization" }
     ],
     "links": {
       "github": []
@@ -39,14 +44,16 @@
     "shortDescription": "Engineered a fault-tolerant client-server architecture for extracting text from images. Implemented multithreading with OpenCV and Tesseract for high-throughput processing.",
     "fullDescription": "A robust distributed system designed for high-throughput Optical Character Recognition (OCR). The system employs a client-server architecture using gRPC for communication. It features fault tolerance mechanisms and utilizes multithreading to parallelize image processing tasks using OpenCV and Tesseract, ensuring efficient text extraction even under heavy loads.",
     "techStack": ["C++", "gRPC", "OpenCV", "Tesseract", "Distributed Systems", "Multithreading"],
-    "coverImage": "/images/placeholder-ocr.jpg",
+    "coverImage": "/images/discm_cover.png",
     "media": [
-      { "type": "image", "url": "/images/placeholder-ocr-arch.jpg", "caption": "System Architecture" }
+      { "type": "image", "url": "/images/ocr_img_1.png", "caption": "Default View" },
+      { "type": "image", "url": "/images/ocr_img_2.png", "caption": "Batch Processing" },
+      { "type": "image", "url": "/images/ocr_img_3.png", "caption": "Finished Processing" }
     ],
     "links": {
       "github": [
-        { "label": "Client Code", "url": "https://github.com/RamBrodett/OCRClient" },
-        { "label": "Server Code", "url": "https://github.com/RamBrodett/OCRServer" }
+        { "label": "Client Repo", "url": "https://github.com/RamBrodett/OCRClient" },
+        { "label": "Server Repo", "url": "https://github.com/RamBrodett/OCRServer" }
       ]
     }
   },
@@ -54,12 +61,17 @@
     "slug": "lexson",
     "title": "Lexson System",
     "subtitle": "Client-Based Project • 2023",
-    "shortDescription": "",
-    "fullDescription": "",
-    "techStack": ["React", "Node.js"],
-    "coverImage": "/images/placeholder-ocr.jpg",
+    "shortDescription": "Developed a custom inventory and billing system, automating manual business processes to eliminate data entry errors.",
+    "fullDescription": "Designed and deployed a bespoke inventory and billing management system tailored to streamline the client's end-to-end business operations. By transitioning the organization from manual record-keeping to a centralized digital architecture, the system automated critical workflows ranging from stock monitoring to invoicing. This digital transformation eliminated manual data entry errors, accelerated order processing times, and provided real-time visibility into financial and inventory metrics.",
+    "techStack": ["React", "Node.js", "MongoDB", "Express"],
+    "coverImage": "/images/lexson_cover.png",
     "media": [
-      { "type": "image", "url": "/images/placeholder-ocr-arch.jpg", "caption": "System Architecture" }
+      { "type": "image", "url": "/images/lexson_img_1.png", "caption": "Dashboard (Filled with mock data)" },
+       { "type": "image", "url": "/images/lexson_img_2.png", "caption": "Inventory (Filled with mock data)" },
+        { "type": "image", "url": "/images/lexson_img_3.png", "caption": "Orders (Filled with mock data)" },
+         { "type": "image", "url": "/images/lexson_img_4.png", "caption": "Order Processing (Filled with mock data)" },
+          { "type": "image", "url": "/images/lexson_img_5.png", "caption": "Billing (Filled with mock data)" },
+           { "type": "image", "url": "/images/lexson_img_6.png", "caption": "Billing Receipt (Filled with mock data)" }
     ],
     "links": {
       "github": [],
