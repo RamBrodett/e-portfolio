@@ -5,7 +5,7 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
 
-export const BASE_PATH = "/e-portfolio";
+export const BASE_PATH = "";
 
 export function getAssetPath(path: string) {
   if (path.startsWith("http")) return path;
