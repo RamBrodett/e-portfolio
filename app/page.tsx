@@ -62,7 +62,7 @@ function ScreenshotTag({ project }: { project: Project }) {
   );
 }
 
-function FeaturedProject({ project, short = false }: { project: Project; short?: boolean }) {
+function FeaturedProject({ project }: { project: Project }) {
   const { kind, year } = getProjectMeta(project);
   return (
     <Link
@@ -78,7 +78,7 @@ function FeaturedProject({ project, short = false }: { project: Project; short?:
           <span className="font-mono text-[13px] tabular-nums text-muted-foreground">{year}</span>
         </div>
         <h3 className="text-2xl font-semibold tracking-[-0.03em]">{project.title}</h3>
-        <p className="text-muted-foreground">{short ? project.shortDescription : project.fullDescription}</p>
+        <p className="text-muted-foreground">{project.shortDescription}</p>
         <MyPart project={project} />
         <p className="pt-3 font-mono text-xs leading-relaxed text-muted-foreground/80">
           {project.techStack.join(" / ")}
@@ -157,7 +157,7 @@ export default function Home() {
           </div>
           {trailing && (
             <div className="mt-5">
-              <FeaturedProject project={trailing} short />
+              <FeaturedProject project={trailing} />
             </div>
           )}
         </section>

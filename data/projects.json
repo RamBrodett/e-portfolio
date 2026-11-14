@@ -3,7 +3,7 @@
     "slug": "polytrades",
     "title": "Polytrades",
     "subtitle": "Freelance • 2026",
-    "shortDescription": "Internal estimating platform that takes invitations to bid from the inbox to a finished proposal, with AI intake and automated electrical takeoff.",
+    "shortDescription": "Internal estimating platform that takes bids from inbox to proposal, with AI intake and automated electrical takeoff.",
     "fullDescription": "Polytrades is an internal platform for electrical estimating. It reads invitations to bid from the company inboxes with LLMs, pulls the plan documents, and tracks every bid through review, takeoff and pricing. Its electrical takeoff uses OCR and computer vision to detect fixtures, associate circuits and calculate material quantities from construction plans. Priced projects become proposals for each bidding company, built from that company's own template.",
     "screenshotNote": "Taken from a scrubbed build of the internal platform. Companies, people, emails, projects and amounts are placeholder data, and the plan sheet in the takeoff view is a publicly available electrical drawing.",
     "screenshotTag": "Screenshots: scrubbed build, placeholder data",
