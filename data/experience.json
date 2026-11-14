@@ -1,0 +1,42 @@
+[
+  {
+    "role": "Data Engineer & AI Integration Intern",
+    "organization": "IBM Philippines",
+    "location": "Manila, Philippines",
+    "start": "Sep 2026",
+    "end": "Present",
+    "summary": "Engineered AI-integrated internal developer tools and automated workflows, reducing repetitive manual tasks and speeding up daily engineering work across project teams."
+  },
+  {
+    "role": "Freelance Software Developer",
+    "organization": "Self-Employed",
+    "location": "Manila, Philippines",
+    "start": "May 2026",
+    "end": "Present",
+    "summary": "Develop and manage end-to-end full-stack web applications for healthcare and business clients, from architecture and database design to deployment, maintenance and stakeholder communication."
+  },
+  {
+    "role": "Software Developer Intern",
+    "organization": "De La Salle University Science Foundation, Inc.",
+    "location": "Manila, Philippines",
+    "start": "Jun 2026",
+    "end": "Aug 2026",
+    "summary": "Revitalized Animo Labs' internal management system with centralized workflows for equipment inventory and reservations, facility bookings, financial records, and employee and guest identification."
+  },
+  {
+    "role": "Technical Operations (Lab)",
+    "organization": "DLSU Human-X Interactions Laboratory",
+    "location": "Manila, Philippines",
+    "start": "Aug 2025",
+    "end": "Apr 2026",
+    "summary": "Managed HCI laboratory infrastructure: provisioning hardware and supporting software development, hardware-software integration and system troubleshooting."
+  },
+  {
+    "role": "Undergraduate Researcher",
+    "organization": "DLSU Human-X Interactions Laboratory",
+    "location": "Manila, Philippines",
+    "start": "Oct 2024",
+    "end": "Apr 2026",
+    "summary": "Devised the development strategy for a novel text-to-audio application by analyzing industry-standard AI pipelines and identifying gaps in user personalization and localization."
+  }
+]

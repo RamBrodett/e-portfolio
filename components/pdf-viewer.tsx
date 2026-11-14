@@ -4,147 +4,98 @@ import "@/lib/polyfills";
 
 import { useState, useRef, useEffect } from "react";
 import { Document, Page, pdfjs } from "react-pdf";
-import { Button } from "@/components/ui/button";
-import { ChevronLeft, ChevronRight, Download, ZoomIn, ZoomOut } from "lucide-react";
+import { Download, Minus, Plus } from "lucide-react";
 import "react-pdf/dist/esm/Page/AnnotationLayer.css";
 import "react-pdf/dist/esm/Page/TextLayer.css";
-import { getAssetPath } from "@/lib/utils";
 
-// Set up the worker
 pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
+
+const MIN_SCALE = 0.6;
+const MAX_SCALE = 2;
+const STEP = 0.2;
+const MAX_PAGE_WIDTH = 860;
 
 interface PDFViewerProps {
   fileUrl: string;
+  downloadName?: string;
 }
 
-export function PDFViewer({ fileUrl }: PDFViewerProps) {
-  const [numPages, setNumPages] = useState<number>(0);
-  const [pageNumber, setPageNumber] = useState<number>(1);
-  const [scale, setScale] = useState<number>(1.0);
-  const [containerWidth, setContainerWidth] = useState<number>(0);
+/** Every page stacked for continuous scrolling, with a small floating zoom/download bar. */
+export function PDFViewer({ fileUrl, downloadName = "Ram_Brodett_Resume.pdf" }: PDFViewerProps) {
+  const [numPages, setNumPages] = useState(0);
+  const [scale, setScale] = useState(1);
+  const [containerWidth, setContainerWidth] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
-  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const resizeObserver = new ResizeObserver((entries) => {
-      if (entries[0]) {
-        setContainerWidth(entries[0].contentRect.width);
-      }
-    });
-
-    if (containerRef.current) {
-      resizeObserver.observe(containerRef.current);
-    }
-
-    return () => {
-      resizeObserver.disconnect();
-    };
+    const el = containerRef.current;
+    if (!el) return;
+    const observer = new ResizeObserver(([entry]) => setContainerWidth(entry.contentRect.width));
+    observer.observe(el);
+    return () => observer.disconnect();
   }, []);
 
-  function onDocumentLoadSuccess({ numPages }: { numPages: number }) {
-    setNumPages(numPages);
-    setIsLoading(false);
-  }
+  const pageWidth = containerWidth ? Math.min(containerWidth, MAX_PAGE_WIDTH) * scale : undefined;
+  const zoom = (delta: number) =>
+    setScale((s) => Math.round(Math.min(MAX_SCALE, Math.max(MIN_SCALE, s + delta)) * 10) / 10);
 
-  function changePage(offset: number) {
-    setPageNumber((prevPageNumber) => prevPageNumber + offset);
-  }
-
-  function previousPage() {
-    changePage(-1);
-  }
-
-  function nextPage() {
-    changePage(1);
-  }
-
-  function zoomIn() {
-    setScale((prev) => Math.min(prev + 0.2, 3.0));
-  }
-
-  function zoomOut() {
-    setScale((prev) => Math.max(prev - 0.2, 0.5));
-  }
+  const iconButton =
+    "inline-flex size-8 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-muted hover:text-foreground disabled:pointer-events-none disabled:opacity-40";
 
   return (
-    <div className="flex flex-col h-full">
-      {/* Controls */}
-      <div className="flex flex-col md:flex-row items-center justify-between gap-4 mb-4 p-3 bg-card border border-border rounded-lg">
-        <h1 className="text-xl md:text-2xl font-bold">Resume</h1>
-        
-        <div className="flex flex-wrap items-center justify-center md:justify-end gap-2 md:gap-4 w-full md:w-auto">
-            <div className="flex items-center gap-2">
-            <Button
-                variant="outline"
-                size="sm"
-                onClick={previousPage}
-                disabled={pageNumber <= 1}
-            >
-                <ChevronLeft className="h-4 w-4" />
-            </Button>
-            <span className="text-sm min-w-[60px] md:min-w-[100px] text-center">
-                Page {pageNumber} of {numPages}
-            </span>
-            <Button
-                variant="outline"
-                size="sm"
-                onClick={nextPage}
-                disabled={pageNumber >= numPages}
-            >
-                <ChevronRight className="h-4 w-4" />
-            </Button>
-            </div>
-
-            <div className="flex items-center gap-2">
-            <Button variant="outline" size="sm" onClick={zoomOut}>
-                <ZoomOut className="h-4 w-4" />
-            </Button>
-            <span className="text-sm min-w-[40px] md:min-w-[50px] text-center">{Math.round(scale * 100)}%</span>
-            <Button variant="outline" size="sm" onClick={zoomIn}>
-                <ZoomIn className="h-4 w-4" />
-            </Button>
-            </div>
-            
-            <Button variant="outline" size="sm" asChild>
-                <a href={getAssetPath("/resume.pdf")} download="Ram_Brodett_Resume.pdf">
-                    <Download className="h-4 w-4" />
-                    <span className="sr-only md:not-sr-only md:ml-2">Download</span>
-                </a>
-            </Button>
-        </div>
+    <div>
+      <div className="sticky top-[4.5rem] z-40 mx-auto flex w-fit items-center gap-1 rounded-lg border border-border bg-background/85 p-1 shadow-sm backdrop-blur">
+        <button type="button" className={iconButton} onClick={() => zoom(-STEP)} disabled={scale <= MIN_SCALE} aria-label="Zoom out">
+          <Minus className="h-4 w-4" />
+        </button>
+        <span className="w-12 text-center font-mono text-xs tabular-nums text-muted-foreground" aria-live="polite">
+          {Math.round(scale * 100)}%
+        </span>
+        <button type="button" className={iconButton} onClick={() => zoom(STEP)} disabled={scale >= MAX_SCALE} aria-label="Zoom in">
+          <Plus className="h-4 w-4" />
+        </button>
+        <span aria-hidden="true" className="mx-1 h-5 w-px bg-border" />
+        <a
+          href={fileUrl}
+          download={downloadName}
+          className="inline-flex h-8 items-center gap-2 rounded-md px-3 text-sm font-medium transition-colors hover:bg-muted"
+        >
+          <Download className="h-4 w-4" />
+          Download
+        </a>
       </div>
 
-      {/* PDF Display */}
-      <div 
-        className="flex-1 overflow-auto bg-muted rounded-lg relative" 
-        ref={containerRef}
-      >
-        {isLoading && (
-          <div className="absolute inset-0 flex items-center justify-center z-10">
-            <div className="text-muted-foreground">Loading PDF...</div>
-          </div>
-        )}
-        <div className="min-w-full min-h-full flex items-start justify-center p-4 w-fit">
-          <Document
-            file={fileUrl}
-            onLoadSuccess={onDocumentLoadSuccess}
-            loading=""
-            error={
-              <div className="text-destructive p-4">
-                Failed to load PDF. Please try downloading instead.
-              </div>
-            }
-            className="flex justify-center"
-          >
+      <div ref={containerRef} className="mt-6 overflow-x-auto">
+        <Document
+          file={fileUrl}
+          onLoadSuccess={({ numPages }) => setNumPages(numPages)}
+          loading={
+            <div className="mx-auto flex aspect-[8.5/11] w-full max-w-[860px] items-center justify-center rounded-sm border border-border bg-card/90 font-mono text-xs text-muted-foreground">
+              Loading resume…
+            </div>
+          }
+          error={
+            <div className="rounded-lg border border-border bg-card/90 p-6 text-center text-muted-foreground">
+              The resume could not be displayed.{" "}
+              <a href={fileUrl} download={downloadName} className="font-medium text-primary underline-offset-4 hover:underline">
+                Download the PDF
+              </a>{" "}
+              instead.
+            </div>
+          }
+          className="mx-auto flex w-fit min-w-full flex-col items-center gap-6 pb-16"
+        >
+          {Array.from({ length: numPages }, (_, i) => (
             <Page
-              pageNumber={pageNumber}
-              width={containerWidth ? Math.min(containerWidth - 40, 800) * scale : undefined}
-              className="shadow-lg"
-              renderTextLayer={true}
-              renderAnnotationLayer={true}
+              key={i + 1}
+              pageNumber={i + 1}
+              width={pageWidth}
+              className="overflow-hidden rounded-sm shadow-lg"
+              renderTextLayer
+              renderAnnotationLayer
             />
-          </Document>
-        </div>
+          ))}
+        </Document>
       </div>
     </div>
   );

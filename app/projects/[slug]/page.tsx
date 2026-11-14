@@ -3,10 +3,21 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowLeft, Github, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { getProjectBySlug, getProjects } from "@/lib/projects";
 import { getAssetPath, getYouTubeId } from "@/lib/utils";
+
+function Note({ label, text }: { label: string; text: string }) {
+  return (
+    <div className="flex gap-3 rounded-lg border border-border bg-card/90 p-4">
+      <span aria-hidden="true" className="mt-1.5 size-2 shrink-0 bg-primary" />
+      <div className="space-y-1">
+        <p className="font-mono text-xs uppercase tracking-[0.12em] text-muted-foreground">{label}</p>
+        <p className="text-sm text-muted-foreground">{text}</p>
+      </div>
+    </div>
+  );
+}
 
 interface ProjectPageProps {
   params: Promise<{
@@ -29,6 +40,10 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
     notFound();
   }
 
+  const related = (project.related ?? [])
+    .map((s) => getProjectBySlug(s))
+    .filter((p): p is NonNullable<typeof p> => Boolean(p));
+
   return (
     <main className="min-h-screen py-24 px-8 md:px-0">
       <div className="mx-auto max-w-3xl space-y-8">
@@ -41,16 +56,11 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
         {/* Header */}
         <div className="space-y-4">
-          <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">{project.title}</h1>
-          <p className="text-xl text-muted-foreground">{project.subtitle}</p>
-          
-          <div className="flex flex-wrap gap-2 pt-2">
-            {project.techStack.map((tech) => (
-              <Badge key={tech} variant="secondary" className="text-sm">
-                {tech}
-              </Badge>
-            ))}
-          </div>
+          <p className="font-mono text-[13px] text-muted-foreground">{project.subtitle}</p>
+          <h1 className="text-4xl font-semibold tracking-[-0.04em] sm:text-5xl">{project.title}</h1>
+          <p className="pt-1 font-mono text-xs leading-relaxed text-muted-foreground/80">
+            {project.techStack.join(" / ")}
+          </p>
 
           <div className="flex gap-4 pt-4 flex-wrap">
             {project.links.github && project.links.github.length > 0 ? (
@@ -94,10 +104,43 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           </p>
         </div>
 
+        {project.contributions && project.contributions.length > 0 && (
+          <div className="space-y-4">
+            <h3 className="text-2xl font-semibold">My part</h3>
+            <ul className="divide-y divide-border border-y border-border">
+              {project.contributions.map((c) => (
+                <li key={c.area} className="grid gap-1 py-3 sm:grid-cols-[11rem_minmax(0,1fr)] sm:gap-6">
+                  <span className="font-medium">{c.area}</span>
+                  {c.detail && <span className="text-muted-foreground">{c.detail}</span>}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        {related.length > 0 && (
+          <p className="text-muted-foreground">
+            Connected project:{" "}
+            {related.map((r, i) => (
+              <span key={r.slug}>
+                {i > 0 && ", "}
+                <Link href={`/projects/${r.slug}`} className="font-medium text-foreground underline-offset-4 hover:text-primary hover:underline">
+                  {r.title}
+                </Link>
+              </span>
+            ))}
+          </p>
+        )}
+
+        {project.media.length === 0 && project.screenshotNote && (
+          <Note label="Screenshots" text={project.screenshotNote} />
+        )}
+
         {/* Media Gallery */}
         {project.media.length > 0 && (
           <div className="space-y-6 pt-8">
             <h3 className="text-2xl font-semibold">Gallery</h3>
+            {project.screenshotNote && <Note label="About these screenshots" text={project.screenshotNote} />}
             <div className="grid gap-6">
               {project.media.map((item, index) => (
                 <div key={index} className="space-y-2">

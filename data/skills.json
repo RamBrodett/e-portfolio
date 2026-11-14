@@ -1,0 +1,70 @@
+[
+  {
+    "group": "Languages",
+    "items": [
+      "Python",
+      "TypeScript",
+      "JavaScript",
+      "Go",
+      "C/C++",
+      "C#",
+      "Java",
+      "Kotlin",
+      "SQL"
+    ]
+  },
+  {
+    "group": "Frameworks",
+    "items": [
+      "Next.js",
+      "React",
+      "FastAPI",
+      "Qt",
+      "PyTorch",
+      "llama.cpp",
+      "JavaFX"
+    ]
+  },
+  {
+    "group": "AI",
+    "items": [
+      "LLM integration",
+      "LLM orchestration",
+      "LangChain",
+      "Hugging Face",
+      "OpenAI",
+      "Anthropic",
+      "scikit-learn"
+    ]
+  },
+  {
+    "group": "Data engineering",
+    "items": [
+      "Apache Spark",
+      "Databricks",
+      "Pandas",
+      "NumPy",
+      "Matplotlib"
+    ]
+  },
+  {
+    "group": "Databases",
+    "items": [
+      "PostgreSQL",
+      "MySQL",
+      "MongoDB",
+      "Qdrant",
+      "Drizzle ORM"
+    ]
+  },
+  {
+    "group": "Infrastructure",
+    "items": [
+      "Docker",
+      "Git",
+      "Google Cloud",
+      "AWS",
+      "Jira"
+    ]
+  }
+]

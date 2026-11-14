@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Navbar } from "@/components/navbar"; 
-import { WaveBackground } from "@/components/wave-background";
+import { FieldBackground } from "@/components/field-background";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Ram Brodett | Portfolio",
-  description: "Software Engineer Portfolio",
+  description: "Full stack software engineer building scalable systems with AI integration and a human-computer interaction background.",
 };
 
 export default function RootLayout({
@@ -36,7 +36,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <WaveBackground />
+          <FieldBackground />
           <Navbar />
           {children}
         </ThemeProvider>

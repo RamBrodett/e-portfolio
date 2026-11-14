@@ -3,6 +3,17 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useSmoothScroll } from "@/hooks/use-smooth-scroll";
+import { siteConfig } from "@/lib/site-config";
+import { cn } from "@/lib/utils";
+
+const LINKS = [
+  { id: "projects", label: "Projects" },
+  { id: "experience", label: "Experience", desktopOnly: true },
+  ...(siteConfig.features.certifications
+    ? [{ id: "certifications", label: "Certifications", desktopOnly: true }]
+    : []),
+  { id: "contact", label: "Contact" },
+];
 
 export function Navbar() {
   const pathname = usePathname();
@@ -15,40 +26,30 @@ export function Navbar() {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/90 backdrop-blur supports-backdrop-filter:bg-background/60 ">
-      <div className="mx-auto max-w-lg md:max-w-2xl xl:max-w-6xl  flex h-14 items-center justify-between px-8 md:px-0">
-        <div className="mr-4 hidden md:flex">
-          <Link href="/" className="mr-6 flex items-center space-x-2">
-            <span className="hidden font-bold sm:inline-block">
-              rmbrodett
-            </span>
-          </Link>
-        </div>
-        <div>
-          <nav className="flex items-center space-x-6 text-sm font-medium">
-            <Link 
-              href="/#about" 
-              onClick={(e) => handleNavClick(e, "about")}
-              className="transition-colors hover:text-foreground/80 text-foreground/60"
+    <header className="sticky top-0 z-50 w-full border-b border-border bg-background/80 backdrop-blur supports-backdrop-filter:bg-background/70">
+      <div className="mx-auto flex h-14 max-w-lg items-center justify-between gap-4 px-4 sm:px-8 md:max-w-2xl md:px-0 xl:max-w-6xl">
+        <Link
+          href="/#about"
+          onClick={(e) => handleNavClick(e, "about")}
+          className="text-[15px] font-semibold tracking-tight"
+        >
+          rmbrodett
+        </Link>
+        <nav className="flex items-center gap-5 text-sm sm:gap-6">
+          {LINKS.map((link) => (
+            <Link
+              key={link.id}
+              href={`/#${link.id}`}
+              onClick={(e) => handleNavClick(e, link.id)}
+              className={cn(
+                "text-muted-foreground transition-colors hover:text-foreground",
+                link.desktopOnly && "hidden sm:inline"
+              )}
             >
-              About
+              {link.label}
             </Link>
-            <Link 
-              href="/#projects" 
-              onClick={(e) => handleNavClick(e, "projects")}
-              className="transition-colors hover:text-foreground/80 text-foreground/60"
-            >
-              Projects
-            </Link>
-            <Link 
-              href="/#contact" 
-              onClick={(e) => handleNavClick(e, "contact")}
-              className="transition-colors hover:text-foreground/80 text-foreground/60"
-            >
-              Contact
-            </Link>
-          </nav>
-        </div>
+          ))}
+        </nav>
       </div>
     </header>
   );
