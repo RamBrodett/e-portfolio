@@ -122,6 +122,15 @@
   html {
     scroll-behavior: smooth;
     overscroll-behavior: none;
+    /* Page text can't be highlighted or copied (see CopyGuard). */
+    -webkit-user-select: none;
+    user-select: none;
+  }
+  input,
+  textarea,
+  [contenteditable]:not([contenteditable="false"]) {
+    -webkit-user-select: text;
+    user-select: text;
   }
   * {
     @apply border-border outline-ring/50;

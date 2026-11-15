@@ -11,13 +11,13 @@ export function CopyEmail({ email }: { email: string }) {
       setCopied(true);
       setTimeout(() => setCopied(false), 1400);
     } catch {
-      /* clipboard unavailable: the address stays selectable */
+      /* clipboard unavailable: the mailto button above still works */
     }
   };
 
   return (
     <div className="flex flex-wrap items-center gap-3 font-mono text-sm text-muted-foreground">
-      <span className="select-all">{email}</span>
+      <span>{email}</span>
       <button
         type="button"
         onClick={copy}

@@ -1,11 +1,10 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import Image from "next/image";
 import { ArrowLeft, Github, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { getProjectBySlug, getProjects } from "@/lib/projects";
-import { getAssetPath, getYouTubeId } from "@/lib/utils";
+import { ProjectGallery } from "@/components/project-gallery";
 
 function Note({ label, text }: { label: string; text: string }) {
   return (
@@ -141,44 +140,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           <div className="space-y-6 pt-8">
             <h3 className="text-2xl font-semibold">Gallery</h3>
             {project.screenshotNote && <Note label="About these screenshots" text={project.screenshotNote} />}
-            <div className="grid gap-6">
-              {project.media.map((item, index) => (
-                <div key={index} className="space-y-2">
-                  <div className="overflow-hidden rounded-lg border bg-muted relative">
-                    {item.type === "video" ? (
-                      getYouTubeId(item.url) ? (
-                        <iframe
-                          src={`https://www.youtube.com/embed/${getYouTubeId(item.url)}`}
-                          className="w-full h-auto aspect-video"
-                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                          allowFullScreen
-                        />
-                      ) : (
-                        <video 
-                          src={getAssetPath(item.url)} 
-                          controls 
-                          className="w-full h-auto aspect-video object-cover"
-                        />
-                      )
-                    ) : (
-                      <Image 
-                        src={getAssetPath(item.url)} 
-                        alt={item.caption || project.title} 
-                        width={item.width ?? 0}
-                        height={item.height ?? 0}
-                        sizes="(min-width: 768px) 768px, 100vw"
-                        className="w-full h-auto object-cover"
-                      />
-                    )}
-                  </div>
-                  {item.caption && (
-                    <p className="text-sm text-muted-foreground text-center italic">
-                      {item.caption}
-                    </p>
-                  )}
-                </div>
-              ))}
-            </div>
+            <ProjectGallery media={project.media} title={project.title} />
           </div>
         )}
       </div>

@@ -125,20 +125,20 @@
     "subtitle": "Freelance • 2026",
     "shortDescription": "HIPAA-compliant staff operations platform for a Florida home health agency, from patient intake and insurance to scheduling.",
     "fullDescription": "A HIPAA-compliant staff operations platform for a Florida home health agency that sends nurses and therapists to patients' homes. It replaces the agency's old system as the office's command center: intake of new referrals, insurance eligibility and authorization, visit scheduling, and the clinical review, QA, billing and HR work around them.",
-    "screenshotNote": "I am not permitted to show the system.",
-    "screenshotTag": "Client system · not shown",
+    "screenshotNote": "Taken from a test environment of the system. Patients, staff, addresses, phone numbers and visits are generated test data.",
+    "screenshotTag": "Screenshots: test environment, generated data",
     "contributions": [
       {
         "area": "Coverage map",
-        "detail": "Built a visual map of the areas the agency serves, showing where its patients are from live data. Each pin previews the patient's key personal and medical details."
+        "detail": "Built the UI and logic for a map of the area the agency serves, showing its patients and staff from live data. Each patient's pin previews their key personal and medical details."
       },
       {
         "area": "Smart staffing",
-        "detail": "Built staffing suggestions that rank caregivers for each patient ahead of their scheduled visit."
+        "detail": "Worked on the backend of visit scheduling and assignment, including the matching that ranks caregivers for each visit."
       },
       {
         "area": "Matching factors",
-        "detail": "Ranks caregivers on whether they have cared for that patient before, their expertise, their utilization and schedule for that day, travel distance and the area's usual traffic."
+        "detail": "Ranks caregivers on whether they have cared for that patient before, their expertise, their utilization and schedule for that day, and travel distance."
       }
     ],
     "techStack": [
@@ -148,7 +148,71 @@
       "Smart staffing"
     ],
     "tagline": "Home health operations",
-    "media": [],
+    "media": [
+      {
+        "type": "image",
+        "url": "/images/wheatland_home.webp",
+        "caption": "Home: the Patient 360 summary and a workspace for each department",
+        "width": 1600,
+        "height": 912
+      },
+      {
+        "type": "image",
+        "url": "/images/wheatland_calendar.webp",
+        "caption": "Scheduling calendar: a week of visits with each visit's clinician and status",
+        "width": 1600,
+        "height": 912
+      },
+      {
+        "type": "image",
+        "url": "/images/wheatland_availability.webp",
+        "caption": "Clinician availability for each AM, PM and NOC shift, with booked visits marked",
+        "width": 1600,
+        "height": 912
+      },
+      {
+        "type": "image",
+        "url": "/images/wheatland_coverage-map.webp",
+        "caption": "Coverage map: patients by status and staff across the service area",
+        "width": 1600,
+        "height": 912
+      },
+      {
+        "type": "image",
+        "url": "/images/wheatland_patient-pin.webp",
+        "caption": "A patient's pin previews their services, notes and status, beside their upcoming visits",
+        "width": 1600,
+        "height": 912
+      },
+      {
+        "type": "image",
+        "url": "/images/wheatland_staff-ranking.webp",
+        "caption": "Find staff: caregivers ranked for a visit, with the reasons and the route from their prior visit",
+        "width": 1600,
+        "height": 912
+      },
+      {
+        "type": "image",
+        "url": "/images/wheatland_watch-items.webp",
+        "caption": "Lower-ranked matches show watch items, such as a long drive to the patient",
+        "width": 1600,
+        "height": 912
+      },
+      {
+        "type": "image",
+        "url": "/images/wheatland_assign.webp",
+        "caption": "Assign a clinician: ranked candidates with their open windows for the week and the drive on their route",
+        "width": 1600,
+        "height": 912
+      },
+      {
+        "type": "image",
+        "url": "/images/wheatland_schedule-checks.webp",
+        "caption": "Schedule checks before the visit is assigned: availability, conflicts, authorization and license",
+        "width": 1600,
+        "height": 912
+      }
+    ],
     "links": {
       "github": []
     }
@@ -159,8 +223,8 @@
     "subtitle": "Freelance • 2026",
     "shortDescription": "Healthcare marketplace for California and Nevada that connects patients with verified providers through competitive bidding.",
     "fullDescription": "A healthcare marketplace for patients in California and Nevada. Verified providers bid on patient requests, which simplifies finding care, comparing prices, scheduling and paying. It includes HIPAA-aware workflows for provider credential checks, patient requests, appointments and escrow-based payments.",
-    "screenshotNote": "MedBid has not launched yet, and I am not permitted to show the system.",
-    "screenshotTag": "Unlaunched · system not shown",
+    "screenshotNote": "MedBid is a client project that has not launched yet, so I can't share how the system looks until it does.",
+    "screenshotTag": "Unlaunched client project · not shown yet",
     "contributions": [
       {
         "area": "API",
