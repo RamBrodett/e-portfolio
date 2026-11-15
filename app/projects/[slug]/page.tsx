@@ -164,9 +164,9 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                       <Image 
                         src={getAssetPath(item.url)} 
                         alt={item.caption || project.title} 
-                        width={0}
-                        height={0}
-                        sizes="100vw"
+                        width={item.width ?? 0}
+                        height={item.height ?? 0}
+                        sizes="(min-width: 768px) 768px, 100vw"
                         className="w-full h-auto object-cover"
                       />
                     )}

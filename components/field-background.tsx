@@ -14,7 +14,8 @@ export function FieldBackground() {
   const fieldRef = useRef<FieldHandle | null>(null);
   const { resolvedTheme } = useTheme();
   const pathname = usePathname();
-  const hidden = HIDDEN_ON.includes(pathname);
+  // trailingSlash is on, so the path can arrive as "/resume/".
+  const hidden = HIDDEN_ON.includes(pathname.replace(/\/+$/, "") || "/");
 
   useEffect(() => {
     if (hidden || !canvasRef.current) return;

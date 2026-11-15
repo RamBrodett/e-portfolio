@@ -3,6 +3,8 @@ import Icons from "unplugin-icons/webpack";
 
 const nextConfig: NextConfig = {
   output:"export",
+  // Export each page as <route>/index.html so /projects/x/ resolves on GitHub Pages.
+  trailingSlash: true,
   images:{ unoptimized: true},
   webpack(config) {
     config.plugins.push(

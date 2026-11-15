@@ -4,6 +4,9 @@ export interface ProjectMedia {
   type: "image" | "video";
   url: string;
   caption?: string;
+  /** Pixel size of an image, so the page reserves its space before it loads. */
+  width?: number;
+  height?: number;
 }
 
 export interface ProjectLinks {

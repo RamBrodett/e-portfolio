@@ -40,57 +40,79 @@
       {
         "type": "image",
         "url": "/images/polytrades_today.webp",
-        "caption": "Today: every open invitation to bid, with its inbox, GC, due date and status"
+        "caption": "Today: every open invitation to bid, with its inbox, GC, due date and status",
+        "width": 2000,
+        "height": 1139
       },
       {
         "type": "image",
         "url": "/images/polytrades_inbox.webp",
-        "caption": "Inbox triage: uncertain emails, with project details read from the email"
+        "caption": "Inbox triage: uncertain emails, with project details read from the email",
+        "width": 2000,
+        "height": 1139
       },
       {
         "type": "image",
         "url": "/images/polytrades_plans.webp",
-        "caption": "Plans pulled from the email's links and queued for takeoff"
+        "caption": "Plans pulled from the email's links and queued for takeoff",
+        "width": 2000,
+        "height": 1139
       },
       {
         "type": "image",
         "url": "/images/polytrades_takeoff.webp",
-        "caption": "Electrical takeoff: fixtures counted by type on the lighting plan"
+        "caption": "Electrical takeoff: fixtures counted by type on the lighting plan",
+        "width": 2000,
+        "height": 1139
       },
       {
         "type": "image",
         "url": "/images/polytrades_activity.webp",
-        "caption": "Notes and activity history on a project"
+        "caption": "Notes and activity history on a project",
+        "width": 2000,
+        "height": 1139
       },
       {
         "type": "image",
         "url": "/images/polytrades_priced.webp",
-        "caption": "A priced project with its draft proposal"
+        "caption": "A priced project with its draft proposal",
+        "width": 2000,
+        "height": 1139
       },
       {
         "type": "image",
         "url": "/images/polytrades_bidders.webp",
-        "caption": "Generate proposals, step 1: which company bids to which GC, with each markup"
+        "caption": "Generate proposals, step 1: which company bids to which GC, with each markup",
+        "width": 2000,
+        "height": 1139
       },
       {
         "type": "image",
         "url": "/images/polytrades_scope.webp",
-        "caption": "Step 2: scope items set to OFCI or CFCI"
+        "caption": "Step 2: scope items set to OFCI or CFCI",
+        "width": 2000,
+        "height": 1139
       },
       {
         "type": "image",
         "url": "/images/polytrades_preview.webp",
-        "caption": "Step 3: proposal preview before PDF export"
+        "caption": "Step 3: proposal preview before PDF export",
+        "width": 2000,
+        "height": 1139
       },
       {
         "type": "image",
         "url": "/images/polytrades_inbox-health.webp",
-        "caption": "Inbox health across the connected company mailboxes"
+        "caption": "Inbox health across the connected company mailboxes",
+        "width": 2000,
+        "height": 1139
       },
       {
         "type": "image",
         "url": "/images/polytrades_templates.webp",
-        "caption": "Proposal templates for each bidding company"
+        "caption": "Proposal templates for each bidding company",
+        "width": 2000,
+        "height": 1139
       }
     ],
     "links": {
@@ -203,18 +225,24 @@
     "media": [
       {
         "type": "image",
-        "url": "/images/hearsona_img_1.png",
-        "caption": "Interface"
+        "url": "/images/hearsona_img_1.webp",
+        "caption": "Interface",
+        "width": 1600,
+        "height": 992
       },
       {
         "type": "image",
-        "url": "/images/hearsona_img_2.png",
-        "caption": "HITL conversation"
+        "url": "/images/hearsona_img_2.webp",
+        "caption": "HITL conversation",
+        "width": 1600,
+        "height": 992
       },
       {
         "type": "image",
-        "url": "/images/hearsona_pipeline.png",
-        "caption": "Hearsona Pipeline"
+        "url": "/images/hearsona_pipeline.webp",
+        "caption": "Hearsona Pipeline",
+        "width": 1080,
+        "height": 1080
       },
       {
         "type": "video",
@@ -263,33 +291,45 @@
     "media": [
       {
         "type": "image",
-        "url": "/images/ovrhr_img_design.png",
-        "caption": "Virutal Environment Schematic"
+        "url": "/images/ovrhr_img_design.webp",
+        "caption": "Virutal Environment Schematic",
+        "width": 1600,
+        "height": 1237
       },
       {
         "type": "image",
-        "url": "/images/ovrhr_img_1.png",
-        "caption": "Virtual Environment Implementation (UNITY)"
+        "url": "/images/ovrhr_img_1.webp",
+        "caption": "Virtual Environment Implementation (UNITY)",
+        "width": 792,
+        "height": 612
       },
       {
         "type": "image",
-        "url": "/images/ovrhr_img_5.png",
-        "caption": "In VR User POV"
+        "url": "/images/ovrhr_img_5.webp",
+        "caption": "In VR User POV",
+        "width": 1600,
+        "height": 900
       },
       {
         "type": "image",
-        "url": "/images/ovrhr_img_2.png",
-        "caption": "Grabbing Interaction Tutorial Panel"
+        "url": "/images/ovrhr_img_2.webp",
+        "caption": "Grabbing Interaction Tutorial Panel",
+        "width": 1600,
+        "height": 900
       },
       {
         "type": "image",
-        "url": "/images/ovrhr_img_3.png",
-        "caption": "Successful Pointing Localization"
+        "url": "/images/ovrhr_img_3.webp",
+        "caption": "Successful Pointing Localization",
+        "width": 1600,
+        "height": 900
       },
       {
         "type": "image",
-        "url": "/images/ovrhr_img_4.png",
-        "caption": "Successful Grabbing Localization"
+        "url": "/images/ovrhr_img_4.webp",
+        "caption": "Successful Grabbing Localization",
+        "width": 1600,
+        "height": 900
       }
     ],
     "links": {
@@ -322,33 +362,45 @@
     "media": [
       {
         "type": "image",
-        "url": "/images/lexson_img_1.png",
-        "caption": "Dashboard (Filled with mock data)"
+        "url": "/images/lexson_img_1.webp",
+        "caption": "Dashboard (Filled with mock data)",
+        "width": 1600,
+        "height": 1006
       },
       {
         "type": "image",
-        "url": "/images/lexson_img_2.png",
-        "caption": "Inventory (Filled with mock data)"
+        "url": "/images/lexson_img_2.webp",
+        "caption": "Inventory (Filled with mock data)",
+        "width": 1600,
+        "height": 1006
       },
       {
         "type": "image",
-        "url": "/images/lexson_img_3.png",
-        "caption": "Orders (Filled with mock data)"
+        "url": "/images/lexson_img_3.webp",
+        "caption": "Orders (Filled with mock data)",
+        "width": 1600,
+        "height": 1006
       },
       {
         "type": "image",
-        "url": "/images/lexson_img_4.png",
-        "caption": "Order Processing (Filled with mock data)"
+        "url": "/images/lexson_img_4.webp",
+        "caption": "Order Processing (Filled with mock data)",
+        "width": 1600,
+        "height": 1006
       },
       {
         "type": "image",
-        "url": "/images/lexson_img_5.png",
-        "caption": "Billing (Filled with mock data)"
+        "url": "/images/lexson_img_5.webp",
+        "caption": "Billing (Filled with mock data)",
+        "width": 1600,
+        "height": 1006
       },
       {
         "type": "image",
-        "url": "/images/lexson_img_6.png",
-        "caption": "Billing Receipt (Filled with mock data)"
+        "url": "/images/lexson_img_6.webp",
+        "caption": "Billing Receipt (Filled with mock data)",
+        "width": 1600,
+        "height": 1006
       }
     ],
     "links": {

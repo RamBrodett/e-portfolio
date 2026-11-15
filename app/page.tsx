@@ -131,7 +131,7 @@ export default function Home() {
               </Link>
             </Button>
             <Button variant="outline" asChild className="h-10 px-4">
-              <Link href="/resume">
+              <Link href="/resume" prefetch={false}>
                 <FileText className="mr-1 h-4 w-4" /> Resume
               </Link>
             </Button>
